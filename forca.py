@@ -31,13 +31,14 @@ def jogar():
             validchute(chute, letras_acertadas, palavra_secreta)
         else:
             erros += 1   # mesma coisa que -> erros = erros + 1
+            desenha_forca(erros)
 
-        enforcou = erros == 6
+        enforcou = erros == 7
         acertou = "_" not in letras_acertadas
         print(letras_acertadas)
 
     if(acertou):
-        msg_vencendor(palavra_secreta)
+        msg_vencendor()
     elif(enforcou):
         msg_perdedor(palavra_secreta)
 
@@ -76,7 +77,7 @@ def validchute(chute, letras_acertadas, palavra_secreta):
 def inicializa_letras_acertadas(palavra):
     return ["_" for letra in palavra]
 
-def msg_vencendor(palavra_secreta):
+def msg_vencendor():
     print("Parabéns, você ganhou!")
     print("       ___________      ")
     print("      '._==_==_=_.'     ")
@@ -108,6 +109,56 @@ def msg_perdedor(palavra_secreta):
     print("   \_             _/       ")
     print("     \_         _/         ")
     print("       \_______/           ")
+
+def desenha_forca(erros):
+    print("  _______     ")
+    print(" |/      |    ")
+
+    if(erros == 1):
+        print(" |      (_)   ")
+        print(" |            ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 2):
+        print(" |      (_)   ")
+        print(" |      \     ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 3):
+        print(" |      (_)   ")
+        print(" |      \|    ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 4):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |            ")
+        print(" |            ")
+
+    if(erros == 5):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |            ")
+
+    if(erros == 6):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      /     ")
+
+    if (erros == 7):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      / \   ")
+
+    print(" |            ")
+    print("_|___         ")
+    print()
 
 if(__name__ == "__main__"):
     jogar()
